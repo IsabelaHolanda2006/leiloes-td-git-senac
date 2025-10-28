@@ -18,7 +18,8 @@ public class conectaDAO {
         Connection conn = null;
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?useSSL=false&user=root&password=Jerry2006$");
+            // troque "suaSenha pela a sua senha real"
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?useSSL=false&user=root&password=suaSenha");
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
         }
