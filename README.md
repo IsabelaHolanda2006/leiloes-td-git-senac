@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-Leilões-TD é um projeto onde usuários podem comprar leilões a preços acessíveis!
+Leilões-TD é um projeto onde o usuário pode gerenciar produtos à venda em um leilão (Fictício)
 
 
 ## Tecnologias utilizadas
@@ -10,5 +10,5 @@ Leilões-TD é um projeto onde usuários podem comprar leilões a preços acess�
 Utilizamos Java como sua pricipal linguagem e Mysql para banco de dados.
 
 
-### não fui eu que fiz o código, a atividade era só para praticar git e github
+### não fui eu que fiz a base do código, a atividade 1 era só para praticar git e github
 ### mas implementei as modificações como pedido.
