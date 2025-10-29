@@ -37,6 +37,18 @@ public class ProdutosDAO {
         }
     }
 
+    public void venderProduto(int id) {
+        try {
+            conn = new conectaDAO().connectDB();
+            String queryString = "UPDATE produtos SET status = 'Vendido' WHERE id = ?";
+            prep = conn.prepareStatement(queryString);
+            prep.setInt(1, id);
+            prep.executeUpdate();
+        } catch (SQLException exception) {
+            JOptionPane.showMessageDialog(null, "Um erro ocorreu no SQL:" + exception.getMessage());
+        }
+    }
+
     public ArrayList<ProdutosDTO> listarProdutos() {
         try {
             conn = new conectaDAO().connectDB();
@@ -44,20 +56,20 @@ public class ProdutosDAO {
             prep = conn.prepareStatement(queryString);
             resultset = prep.executeQuery();
             listagem.clear();
-            
+
             while (resultset.next()) {
                 int id = resultset.getInt(1);
                 String name = resultset.getString(2);
                 int value = resultset.getInt(3);
                 String status = resultset.getString(4);
-                
+
                 ProdutosDTO product = new ProdutosDTO();
-                
+
                 product.setId(id);
                 product.setNome(name);
                 product.setValor(value);
                 product.setStatus(status);
-                
+
                 listagem.add(product);
             }
         } catch (SQLException exception) {
