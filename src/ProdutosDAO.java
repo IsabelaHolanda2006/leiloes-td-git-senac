@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 
 public class ProdutosDAO {
 
-    Connection conn;
-    ResultSet resultset;
-    PreparedStatement prep;
-    ArrayList<ProdutosDTO> listagem = new ArrayList<>();
+    private Connection conn;
+    private ResultSet resultset;
+    private PreparedStatement prep;
+    private ArrayList<ProdutosDTO> listagem = new ArrayList<>();
 
     public void cadastrarProduto(ProdutosDTO produto) {
         try {
@@ -49,10 +49,11 @@ public class ProdutosDAO {
         }
     }
 
-    public ArrayList<ProdutosDTO> listarProdutos() {
+    public ArrayList<ProdutosDTO> listarProdutos(boolean soldOnly) {
         try {
             conn = new conectaDAO().connectDB();
-            String queryString = "SELECT * FROM produtos";
+            String isSoldOnly = soldOnly ? " where status = 'Vendido'" : "";
+            String queryString = "SELECT * FROM produtos" + isSoldOnly;
             prep = conn.prepareStatement(queryString);
             resultset = prep.executeQuery();
             listagem.clear();
